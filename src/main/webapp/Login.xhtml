@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="css/logincss.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="cover">
+                <div class="front">
+                    <img src="images/backImg.jpg" alt="alt"/>
+                    <div class="text">
+                        <span class="text-1">Every new friend is a <br/> new adventure</span>
+                        <span class="text-2">Let's get connected</span>
+                    </div>
+                </div>
+            </div>
+            <h:form>
+                <div class="forms">
+                    <div class="form-content">
+                        <div class="login-form">
+                            <div class="title">Login</div>
+                            <div class="input-boxes">
+                                <div class="input-box">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="text" name="Name"  placeholder="Enter Name" value=""/>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-lock"></i>
+                                    <input type="password" name="UserPassword" placeholder="Enter Password" value=""/>
+                                </div>
+                                <div class="text"><a href="#">Forgot password?</a></div>
+                                <div class="button input-box">
+                                    <h:commandButton  type="submit" value="Login" />
+                                </div>
+                                <div class="text sign-up-text">Don't have an account? 
+                                    <h:outputLink value="Register.jsf">Sign up now</h:outputLink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        <script>
+
+            check.onclick = togglepassword;
+            function togglepassword() {
+                check.checked ? passwordLogin.type = "text" : passwordLogin.type = "password";
+            }
+        </script>
+        <h:outputText id="err" style="color:red" value="#{loginBean.errorStatus}"/>
+    </h:body>
+</html>

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="ProId:" for="proId" />
+                    <h:inputText id="proId" value="#{adminCDI.proid}" title="ProId" required="true" requiredMessage="The ProId field is required."/>
+                    <h:outputLabel value="ProName:" for="proName" />
+                    <h:inputText id="proName" value="#{adminCDI.proName}" title="ProName" required="true" requiredMessage="The ProName field is required."/>
+                    <h:outputLabel value="ProDescription:" for="proDescription" />
+                    <h:inputText id="proDescription" value="#{adminCDI.proDescription}" title="ProDescription" required="true" requiredMessage="The ProDescription field is required."/>
+                    <h:outputLabel value="ExpDate:" for="expDate" />
+                    <h:inputText id="expDate" value="#{adminCDI.expDate}" title="ExpDate" required="true" requiredMessage="The ExpDate field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="ManDate:" for="manDate" />
+                    <h:inputText id="manDate" value="#{adminCDI.manDate}" title="ManDate" required="true" requiredMessage="The ManDate field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="Prostock:" for="prostock" />
+                    <h:inputText id="prostock" value="#{adminCDI.stock}" title="Prostock" required="true" requiredMessage="The Prostock field is required."/>
+                    <h:outputLabel value="ProPrice:" for="proPrice" />
+                    <h:inputText id="proPrice" value="#{adminCDI.proPrice}" title="ProPrice" required="true" requiredMessage="The ProPrice field is required."/>
+                    <h:outputLabel value="CatId:" for="catId" />
+                    <h:selectOneMenu id="catId" value="#{adminCDI.catId}" title="CatId" required="true" requiredMessage="The CatId field is required.">
+                        <f:selectItems value="#{adminCDI.allCat}" var="cat" itemValue="#{cat.catId}" itemLabel="#{cat.catName}" />
+                    </h:selectOneMenu>
+                    <h:outputLabel value="BrandId:" for="brandId" />
+                    <h:selectOneMenu id="brandId" value="#{adminCDI.brandId}" title="BrandId" required="true" requiredMessage="The BrandId field is required.">
+                        <f:selectItems value="#{adminCDI.allBrand}" var="brand" itemValue="#{brand.brandId}" itemLabel="#{brand.brandName}" />
+                    </h:selectOneMenu>
+                    <h:commandButton value="Update" action="#{adminCDI.updatepro(adminCDI.proid.toString(), adminCDI.catId.toString(), adminCDI.brandId.toString())}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>

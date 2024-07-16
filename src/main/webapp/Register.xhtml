@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+        <link href="css/logincss.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <div class="container">
+
+            <div class="cover">
+                <div class="front">
+                    <img src="images/backImg.jpg" alt="alt"/>
+                    <div class="text">
+                        <span class="text-1">Every new friend is a <br/> new adventure</span>
+                        <span class="text-2">Let's get connected</span>
+                    </div>
+                </div>
+            </div>
+            <h:form>
+                <div class="forms">
+                    <div class="form-content">
+                        <div class="login-form">
+                            <div class="title">Register</div>
+
+                            <div class="input-boxes">
+
+                                <div class="input-box">
+                                    <i class="fas fa-user"></i>
+                                    <h:inputText id="name" value="#{userCDI.name}" title="Name" required="true" a:placeholder="Enter Name" requiredMessage="The Name field is required."/>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-envelope"></i>
+                                    <h:inputText id="userEmail" value="#{userCDI.userEmail}" title="UserEmail" a:placeholder="Enter Email" required="true" requiredMessage="The UserEmail field is required."/>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-list"></i>
+                                    <h:inputText id="userNumber" value="#{userCDI.userNumber}" title="UserNumber" a:placeholder="Enter Number" required="true" requiredMessage="The UserNumber field is required."/>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-lock"></i>
+                                    <h:inputText id="userPassword" value="#{userCDI.userPassword}" title="UserPassword" a:placeholder="Enter Password" required="true" requiredMessage="The UserPassword field is required."/>
+                                </div>
+                                <div class="button input-box">
+                                    <h:commandButton action="#{userCDI.insertuser}" value="Register"/>
+                                </div>
+                                <div class="text sign-up-text">Already have an account? 
+                                    <h:outputLink value="Login.jsf">Login now</h:outputLink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+        <h:outputText id="err" style="color:red" value="#{loginBean.errorStatus}"/>
+    </h:body>
+</html>

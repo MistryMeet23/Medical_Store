@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="ProRating:" for="proRating" />
+                    <h:inputText id="proRating" value="#{userCDI.proRating}" title="ProRating" required="true" requiredMessage="The ProRating field is required."/>
+                    <h:outputLabel value="ProReview:" for="proReview" />
+                    <h:inputText id="proReview" value="#{userCDI.proReview}" title="ProReview" required="true" requiredMessage="The ProReview field is required."/>
+                    <h:outputLabel value="AddedDate:" for="addedDate" />
+                    <h:inputText id="addedDate" value="#{userCDI.addedDate}" title="AddedDate" required="true" requiredMessage="The AddedDate field is required.">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="ProId:" for="proId" />
+                    <h:selectOneMenu id="proId" value="#{userCDI.proId}" title="ProId" required="true" requiredMessage="The ProId field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{userCDI.allPro}" var="prod" itemValue="#{prod.proId}" itemLabel="#{prod.proName}"/>
+                    </h:selectOneMenu>
+                    <div class="mt-3" >
+                        <h:commandButton class="btn btn-info form-control" value="Add" action="#{userCDI.insertprorw(proId, userId)}" />
+                    </div>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>

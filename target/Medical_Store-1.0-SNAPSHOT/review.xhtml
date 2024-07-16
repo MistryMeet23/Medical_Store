@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/elegant-icons.css" type="text/css"/>
+        <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/magnific-popup.css" type="text/css"/>
+        <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/slicknav.min.css" type="text/css"/>
+        <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    </h:head>
+
+    <h:body>
+        <!--<ui:include src="Header.xhtml"/>-->
+        <section >
+            <div class="container mt-5">
+                <div class="blog__details__comment container">
+                    <h5>Reviews</h5>
+                    <h:link outcome="insertreview.jsf" class="leave-btn">Add Review</h:link>
+
+                    <ui:repeat value="#{adminCDI.allProductReviews}" var="r">
+
+                        <div class="blog__comment__item border-2">
+                            <div class="blog__comment__item__pic">
+
+                                <img src="proimg/#{r.proId.proImg}" style="height: 100px" alt=""/>
+                            </div>
+
+                            <div class="blog__comment__item__text text-black">
+                                <h6>#{r.userId.name}</h6>
+                                <p>#{r.proReview}.</p>
+                                <ul>
+                                    <li><i class="bi bi-star-fill"></i> #{r.proRating}</li>
+                                    <li><i class="bi bi-hand-thumbs-up-fill"></i></li>
+                                    <li><i class="bi bi-chat-heart-fill"></i> 1</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </ui:repeat>
+                </div>
+            </div>
+        </section>
+        <!--<ui:include src="Footer.xhtml"/>-->
+    </h:body>
+</html>

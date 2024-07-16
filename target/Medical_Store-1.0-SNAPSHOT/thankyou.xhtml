@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Thank You</title>
+        <!-- Include Bootstrap CSS -->
+        <h:outputStylesheet library="css" name="bootstrap.min.css" />
+    </h:head>
+
+    <h:body class="bg-light">
+        <ui:include src="Header.xhtml"/>
+        <div class="container mt-5">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h2 class="text-center">Thank You!</h2>
+                </div>
+                <div class="card-body">
+                    <p class="text-center lead">Your payment was successful. Thank you for your purchase!</p>
+                </div>
+            </div>
+        </div>
+
+        <ui:include src="Footer.xhtml"/>
+    </h:body>
+</html>

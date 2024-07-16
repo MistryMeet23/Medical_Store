@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Admin</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{navigationCDI.checkAdmin()}" />
+               </f:metadata>
+
+        <ui:include src="Header.xhtml"/>
+        <ui:include src="Slidder.xhtml"/>
+
+        <div id="main">
+            <button class="openbtn" onclick="openNav()"><i class="fa fa-home"></i></button>
+        </div>
+        <f:view>
+            <h:form>
+                <h:dataTable value="#{adminCDI.allOrdmst}" var="item" style="width: calc(100% - 60px); margin-left: auto; margin-right: auto;">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="OrderId"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orderId}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Quantity"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantity}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="OrderDate"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orderDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="OrderStatus"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orderStatus}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="OrderTotal"/>
+                        </f:facet>
+                        <h:outputText value="#{item.orderTotal}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="UserId"/>
+                        </f:facet>
+                        <h:outputText value="#{item.userId.name}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </f:view>
+
+        <script src="assets/js/ajaxWork.js" type="text/javascript"></script>
+        <script src="assets/js/script.js" type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    </h:body>
+</html>
